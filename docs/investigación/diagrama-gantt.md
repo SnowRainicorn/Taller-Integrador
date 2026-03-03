@@ -2,7 +2,7 @@
 gantt
     title Cronograma Proyecto Tracker
     dateFormat  YYYY-MM-DD
-    axisFormat  Semana S%W
+    axisFormat  Semana %W
     
     section Fase 1
     Investig. PNAF :2024-01-08, 7d
