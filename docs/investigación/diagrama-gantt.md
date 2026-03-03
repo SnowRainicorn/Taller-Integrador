@@ -20,8 +20,8 @@ gantt
     
     section Fase 4
     Depuración :2024-02-26, 35d
-    Demost. clase :2024-02-26, 35d
-    aprs.fi :2024-03-11, 28d
+    Demostración clase :2024-02-26, 35d
+    Publicación de datos en aprs.fi :2024-03-11, 28d
     Pruebas campo :2024-04-01, 14d
     
     section Fase 5
