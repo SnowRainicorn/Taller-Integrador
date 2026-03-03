@@ -5,7 +5,7 @@ gantt
     axisFormat  Semana %W
     
     section Fase 1
-    Investig. PNAF :2024-01-08, 7d
+    Investigación :2024-01-08, 7d
     Inf. Inicial :2024-01-15, 7d
     
     section Fase 2
