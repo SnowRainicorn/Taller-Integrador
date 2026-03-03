@@ -1,6 +1,6 @@
 ```mermaid
 gantt
-    title Cronograma Proyecto Tracker
+    title Diagrama de Gantt - Proyecto Tracker
     dateFormat  YYYY-MM-DD
     axisFormat  Semana %W
     
