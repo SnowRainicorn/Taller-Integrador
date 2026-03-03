@@ -68,6 +68,7 @@ El sistema LoRa operará en el segmento de uso libre tipificado para aplicacione
 
 **Permisos requeridos para operar**:  
 Al utilizar bandas de uso libre para este tipo de aplicaciones digitales, **no se requiere solicitar una concesión de frecuencias**. Sin embargo, es un requisito legal que los módulos transmisores pasen por un proceso de homologación para garantizar que no causen interferencias perjudiciales.
+
 **Trámites y Mapa de tiempo**:  
 El trámite a realizar es la **Homologación de Equipos Terminales ante la SUTEL**. Se debe presentar un formulario de solicitud junto con las especificaciones técnicas del fabricante (y certificaciones internacionales como FCC o CE). Una vez que el expediente ingresa completo, la SUTEL tiene un plazo estimado de **30 días naturales** para emitir la resolución de homologación.
 
