@@ -73,3 +73,54 @@ Este diagrama de bloques muestra la forma en la que se relacionan los componente
 - Gestor GPS: Extrae latitud, longitud y hora usando librerías como TinyGPS++.
 - Gestor de Energía: Se comunicará por I2C con el chip AXP para leer el porcentaje de batería.
 - Gestor de Interfaz: Manejará la librería ```OneButton``` para los toques del usuario y la lógica no bloqueante (temporizador) del buzzer.
+
+  flowchart TD
+    %% Definición de Estilos
+    classDef hardware fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    classDef software fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+    classDef baseCode fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#000
+
+    %% Capa de Hardware
+    subgraph Hardware [Capa Física - LilyGO T-Beam]
+        MCU[ESP32 Core]:::hardware
+        GPS[Módulo GPS Neo-6M/8M]:::hardware
+        LORA[Radio LoRa SX127x/SX126x]:::hardware
+        AXP[PMU AXP192/2101 - Batería]:::hardware
+        IO[Botón Inteligente & Buzzer]:::hardware
+        
+        GPS -- UART --> MCU
+        LORA -- SPI --- MCU
+        AXP -- I2C --- MCU
+        IO -- GPIO / Interrupciones --> MCU
+    end
+
+    %% Capa de Firmware
+    subgraph Firmware [Arquitectura de Software]
+        MAIN[Orquestador Principal \n Máquina de Estados]:::software
+        
+        %% Módulos base
+        subgraph Base [Módulos Base R. Guzmán]
+            GPS_PARSER[Gestor NMEA / TinyGPS++]:::baseCode
+            LORA_APRS[Gestor LoRa y \n Empaquetado APRS]:::baseCode
+        end
+        
+        %% Módulos propios
+        subgraph Propios [Módulos Propios - Grupo 3]
+            POWER_MGR[Gestor de Energía \n Monitoreo de Batería]:::software
+            UI_MGR[Gestor de Interfaz \n OneButton y Temporizadores]:::software
+        end
+        
+        %% Conexiones de Software
+        GPS_PARSER -->|Coordenadas| MAIN
+        POWER_MGR -->|Nivel %| MAIN
+        UI_MGR -->|Eventos: SOS/Peligro| MAIN
+        
+        MAIN -->|Trama y Payload| LORA_APRS
+    end
+
+    %% Relación Hardware - Software
+    MCU -. Ejecuta .-> MAIN
+    LORA_APRS -. Controla .-> LORA
+    GPS_PARSER -. Lee .-> GPS
+    POWER_MGR -. Consulta .-> AXP
+    UI_MGR -. Controla/Lee .-> IO
