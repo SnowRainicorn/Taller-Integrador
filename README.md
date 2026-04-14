@@ -99,14 +99,14 @@ Este diagrama de bloques muestra la forma en la que se relacionan los componente
     subgraph Firmware [Arquitectura de Software]
         MAIN[Orquestador Principal \n Máquina de Estados]:::software
         
-        %% Módulos base
-        subgraph Base [Módulos Base R. Guzmán]
+        %% Ubicación 
+        subgraph Base [Módulos de coordenadas y empaquetado de tramas]
             GPS_PARSER[Gestor NMEA / TinyGPS++]:::baseCode
             LORA_APRS[Gestor LoRa y \n Empaquetado APRS]:::baseCode
         end
         
-        %% Módulos propios
-        subgraph Propios [Módulos Propios - Grupo 3]
+        %% Gestión
+        subgraph Propios [Módulos de gestión del sistema]
             POWER_MGR[Gestor de Energía \n Monitoreo de Batería]:::software
             UI_MGR[Gestor de Interfaz \n OneButton y Temporizadores]:::software
         end
