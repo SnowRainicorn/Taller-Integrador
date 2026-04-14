@@ -74,6 +74,7 @@ Este diagrama de bloques muestra la forma en la que se relacionan los componente
 - Gestor de Energía: Se comunicará por I2C con el chip AXP para leer el porcentaje de batería.
 - Gestor de Interfaz: Manejará la librería ```OneButton``` para los toques del usuario y la lógica no bloqueante (temporizador) del buzzer.
 
+```mermaid
   flowchart TD
     %% Definición de Estilos
     classDef hardware fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
@@ -124,3 +125,4 @@ Este diagrama de bloques muestra la forma en la que se relacionan los componente
     GPS_PARSER -. Lee .-> GPS
     POWER_MGR -. Consulta .-> AXP
     UI_MGR -. Controla/Lee .-> IO
+```
