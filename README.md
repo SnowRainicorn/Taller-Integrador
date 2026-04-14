@@ -11,6 +11,7 @@ En áreas de conservación, ya sea con topografía montañosa y de alta densidad
 Desarrollar un nodo rastreador LoRa APRS portátil, de bajo consumo y alta autonomía. Este dispositivo actuará como una baliza versátil que puede ser llevada en una mochila por un guía terrestre o instalada temporalmente en un bote. Al transmitir la posición mediante radiofrecuencia a un iGate central (ubicado en la casetas o muelles principales), la administración del parque obtiene telemetría en tiempo real sin depender de redes comerciales de telecomunicaciones. 
 
 **Máquina de estados**
+
 A continuación se muestra el diagrama de máquina de estados propuesto para la implementación y desarrollo de este proyecto. 
 
 ```mermaid
