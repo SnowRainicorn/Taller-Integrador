@@ -13,6 +13,7 @@ Desarrollar un nodo rastreador LoRa APRS portátil, de bajo consumo y alta auton
 **Máquina de estados**
 A continuación se muestra el diagrama de máquina de estados propuesto para la implementación y desarrollo de este proyecto. 
 
+```mermaid
 stateDiagram-v2
     direction TB
     [*] --> INIT
@@ -53,3 +54,4 @@ stateDiagram-v2
         Despierta instantáneamente
         ante una emergencia.
     end note
+``` mermaid
