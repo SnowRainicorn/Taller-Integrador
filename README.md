@@ -100,7 +100,7 @@ Este diagrama de bloques muestra la forma en la que se relacionan los componente
         MAIN[Orquestador Principal \n Máquina de Estados]:::software
         
         %% Ubicación 
-        subgraph Base [Módulos de coordenadas y empaquetado de tramas]
+        subgraph Base [Cordenadas y empaquetado de tramas]
             GPS_PARSER[Gestor NMEA / TinyGPS++]:::baseCode
             LORA_APRS[Gestor LoRa y \n Empaquetado APRS]:::baseCode
         end
