@@ -12,7 +12,7 @@ Desarrollar un nodo rastreador LoRa APRS portátil, de bajo consumo y alta auton
 
 **Máquina de estados**
 
-A continuación se muestra el diagrama de máquina de estados propuesto para la implementación y desarrollo de este proyecto. 
+A continuación se muestra el diagrama de máquina de estados propuesto para la implementación y desarrollo de este proyecto. En el diagrama se detallan los eventos y lo esperado de cada estado. 
 
 ```mermaid
 stateDiagram-v2
@@ -55,4 +55,21 @@ stateDiagram-v2
         Despierta instantáneamente
         ante una emergencia.
     end note
-``` mermaid
+``` 
+
+**Diagrama de Firmware por implementar**
+
+Este diagrama de bloques muestra la forma en la que se relacionan los componentes físicos del Hardware con los módulos de código. A continuación se detalla la propuesta del diagrama. Los bloques del sistema se dividen en dos capas: 
+*Capa del Hardware:*
+- ESP32 (Microcontrolador Core):Este es el cerebro del LilyGO- T-Beam
+- Módulo LoRa (SPI): Chip para transmisión de radiofrecuencia.
+- Módulo GPS (UART): Receptor de posicionamiento satelital.
+- PMU AXP192/2101 (I2C): Chip de gestión de energía (batería 18650).
+- Interfaz de Usuario (GPIO): Botones y el buzzer.
+
+*Capa de Firmware*
+- Core / Main Loop: El orquestador principal, es decir la máquina de estados.
+- Gestor APRS / LoRa: Se encarga de codificar el texto al estándar APRS y manejar las librerías del radio.
+- Gestor GPS: Extrae latitud, longitud y hora usando librerías como TinyGPS++.
+- Gestor de Energía: Se comunicará por I2C con el chip AXP para leer el porcentaje de batería.
+- Gestor de Interfaz: Manejará la librería ```OneButton``` para los toques del usuario y la lógica no bloqueante (temporizador) del buzzer.
