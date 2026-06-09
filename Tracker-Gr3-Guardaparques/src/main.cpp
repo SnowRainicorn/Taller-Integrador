@@ -29,7 +29,7 @@
 // CONFIGURACIoN ESTaTICA Y LEGAL DE LA RED
 // ==========================================
 
-// Identificador APRS de la estacion. Debe corresponder al callsign permitido para la practica/red
+// Identificador APRS de la estacion
 const String CALLSIGN = "TI0TEC3-7";
 
 // Comentario agregado al final de cada trama APRS transmitida
@@ -89,7 +89,7 @@ XPowersPMU PMU;
 // ==========================================
 
 // Estados principales del tracker. El loop() avanza entre estos estados segun eventos y temporizadores
-// Nota: TRANSMITIR esta declarado, pero en este programa la transmision se realiza dentro de EMPAQUETAR
+// TRANSMITIR  en este programa la transmision se realiza dentro de EMPAQUETAR
 enum EstadosTracker { INIT, LEER_GPS, EVALUAR_EVENTO, EMPAQUETAR, TRANSMITIR, DORMIR };
 EstadosTracker estado_actual = INIT;
 
@@ -144,7 +144,7 @@ const unsigned char icon_boat[] PROGMEM = {
 /*
   paddingCeros()
   Convierte un numero a String y agrega ceros a la izquierda hasta alcanzar
-  el ancho solicitado. Construyefechas, horas y coordenadas APRS
+  el ancho solicitado. Construye fechas, horas y coordenadas APRS
 */
 String paddingCeros(int numero, int ancho) {
     String res = String(numero);
